@@ -1,5 +1,6 @@
-type Status = 'idle' | 'downloading' | 'complete';
-function downloadStatus(status: Status) {
+'use strict';
+exports.__esModule = true;
+function downloadStatus(status) {
   if (status === 'idle') {
     // eslint-disable-next-line no-console
     console.log('Download');
@@ -12,5 +13,3 @@ function downloadStatus(status: Status) {
   }
 }
 downloadStatus('idle');
-
-export {};
