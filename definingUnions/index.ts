@@ -4,3 +4,4 @@ function printNumsAndStrings(statement: string | number) {
 }
 
 printNumsAndStrings('hello!');
+export {};
