@@ -1,11 +1,7 @@
-type User = {
-  id: number;
-  username: string;
-};
-
+'use strict';
+exports.__esModule = true;
 function createUser() {
-  const randomChance = Math.random() >= 0.5;
-
+  var randomChance = Math.random() >= 0.5;
   if (randomChance) {
     return { id: 1, username: 'nikko' };
   } else {
@@ -13,5 +9,4 @@ function createUser() {
   }
 }
 // eslint-disable-next-line
-const userData: User | string = createUser();
-export {};
+var userData = createUser();
