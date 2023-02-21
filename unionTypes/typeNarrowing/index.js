@@ -1,4 +1,6 @@
-function formatValue(value: string | number) {
+'use strict';
+exports.__esModule = true;
+function formatValue(value) {
   if (typeof value === 'string') {
     // eslint-disable-next-line no-console
     console.log(value.toLowerCase());
@@ -7,7 +9,5 @@ function formatValue(value: string | number) {
     console.log(value.toFixed(2));
   }
 }
-
 formatValue('Hiya');
 formatValue(42);
-export {};
