@@ -1,23 +1,21 @@
-function formatListings(listings: (string | number)[]) {
+'use strict';
+exports.__esModule = true;
+function formatListings(listings) {
   // eslint-disable-next-line
-  return listings.map(listing => {
+    return listings.map(function (listing) {
     if (typeof listing === 'string') {
       return listing.toUpperCase();
     }
-
     if (typeof listing === 'number') {
-      return `$${listing.toLocaleString()}`;
+      return '$'.concat(listing.toLocaleString());
     }
   });
 }
-
-const result = formatListings([
+var result = formatListings([
   '123 Main St',
   226800,
   '580 Broadway Apt 4a',
   337900
 ]);
-
 // eslint-disable-next-line no-console
 console.log(result);
-export {};
