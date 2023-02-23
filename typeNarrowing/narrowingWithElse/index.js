@@ -1,24 +1,12 @@
-type Pasta = {
-  menuName: string;
-  boil: () => string;
-}
-
-type Meat = {
-  menuName: string;
-  panFry: () => string;
-}
-
-const fettuccine = {
+var fettuccine = {
   menuName: 'Fettuccine',
-  boil: () => 'Heat water to 212 degrees'
+  boil: function () { return 'Heat water to 212 degrees'; }
 };
-
-const steak = {
+var steak = {
   menuName: 'New York Strip Steak',
-  panFry: () => 'Heat oil to 350 degrees'
+  panFry: function () { return 'Heat oil to 350 degrees'; }
 };
-
-function prepareEntree(entree: Pasta | Meat) {
+function prepareEntree(entree) {
   if ('boil' in entree) {
     return entree.boil();
   } else {
