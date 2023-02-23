@@ -1,24 +1,12 @@
-type Cat = {
-  name: string;
-  run: () => string;
-}
-
-type Fish = {
-  name: string;
-  swim: () => string;
-}
-
-const siameseCat = {
+var siameseCat = {
   name: 'Proxie',
-  run: () => 'pitter pat'
+  run: function () { return 'pitter pat'; }
 };
-
-const bettaFish = {
+var bettaFish = {
   name: 'Neptune',
-  swim: () => 'bubble blub'
+  swim: function () { return 'bubble blub'; }
 };
-
-function move(pet: Cat | Fish) {
+function move(pet) {
   if ('run' in pet) {
     return pet.run();
   } else if ('swim' in pet) {
