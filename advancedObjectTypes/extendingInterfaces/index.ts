@@ -1,13 +1,17 @@
-// interface Developer {
-//   code: () => void;
-// }
+interface Human {
+  name:string;
+  hobbies: string[];
+}
 
-// // Add your interface here
+interface Developer extends Human {
+  code: () => void;
+}
 
-// const me: Developer = {
-//   code: () => console.log('Headphones on. Coffee brewed. Editor open.'),
-//   name: 'Corrina',
-//   hobbies: ['Building rockets']
-// };
+const me: Developer = {
+  // eslint-disable-next-line no-console
+  code: () => console.log('Headphones on. Coffee brewed. Editor open.'),
+  name: 'Corrina',
+  hobbies: ['Building rockets']
+};
 
-// me.code();
+me.code();
