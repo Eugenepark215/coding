@@ -1,20 +1,25 @@
-// // Write an interface here
+// Write an interface here
+interface UserNameOptions {
+  firstName?: string;
+  lastName?: string;
+  username:string;
+}
+function getUserName(options: UserNameOptions) {
+  if (options.firstName && options.lastName) {
+    // eslint-disable-next-line
+    return console.log(`${options.firstName} ${options.lastName}`);
+  }
+  // eslint-disable-next-line
+  return console.log(options.username);
+}
 
-// function getUserName(options) {
-//   if (options.firstName && options.lastName) {
-//     return console.log(`${options.firstName} ${options.lastName}`);
-//   }
+getUserName({
+  firstName: 'Mr.',
+  lastName: 'Oshiro',
+  username: 'hotelowner304'
+});
 
-//   return console.log(options.username);
-// }
-
-// getUserName({
-//   firstName: 'Mr.',
-//   lastName: 'Oshiro',
-//   username: 'hotelowner304'
-// });
-
-// getUserName({
-//   firstName: 'Madeline',
-//   username: 'mountainClimber'
-// });
+getUserName({
+  firstName: 'Madeline',
+  username: 'mountainClimber'
+});
