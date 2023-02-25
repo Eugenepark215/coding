@@ -1,6 +1,8 @@
 // Write an interface here
-
-function updateRunGoal(run) {
+interface Run {
+  miles: number;
+}
+function updateRunGoal(run: Run) {
   // eslint-disable-next-line no-console
   console.log(`
 Miles left:       ${50 - run.miles}
