@@ -1,6 +1,9 @@
 // Write an interface here
+interface Directory {
+  addFile: (name:string) => void;
+}
 
-class DesktopDirectory {
+class DesktopDirectory implements Directory {
   addFile(name: string) {
     // eslint-disable-next-line no-console
     console.log(`Adding file: ${name}`);
