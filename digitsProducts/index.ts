@@ -1,5 +1,5 @@
 function solution(product: number): number {
-  function digitProduct(num) {
+  function digitProduct(num :number) :number {
     // multiplies prod = 1 by a given value /10 in while loop
     // exits when num is falsy
     let prod = 1;
