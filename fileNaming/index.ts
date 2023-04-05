@@ -15,6 +15,13 @@ function solution(names: string[]): string[] {
       } else {
         newArray.push(nameObject[names[i]].name);
       }
+    } else if (newArray.includes(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString())) {
+      if (newArray.includes(nameObject[names[i]].name + `(${nameObject[names[i]].amount + 1})`.toString())) {
+        nameObject[names[i]].amount += 2;
+      } else {
+        nameObject[names[i]].amount++;
+      }
+      newArray.push(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString());
     } else {
       newArray.push(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString());
       nameObject[names[i]].amount++;
