@@ -1,33 +1,21 @@
-function solution(names: string[]): string[] {
-  interface objectName {
-    [key: string]: {
-      name: string
-      amount: number
-    };
-  }
-  const newArray = [];
-  const nameObject: objectName = {};
+function solution(names:string []) : string[] {
+  const output = [];
   for (let i = 0; i < names.length; i++) {
-    if (!nameObject[names[i]]) {
-      nameObject[names[i]] = { name: `${names[i]}`, amount: 1 };
-      if (newArray.includes(names[i])) {
-        newArray.push(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString());
-      } else {
-        newArray.push(nameObject[names[i]].name);
-      }
-    } else if (newArray.includes(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString())) {
-      if (newArray.includes(nameObject[names[i]].name + `(${nameObject[names[i]].amount + 1})`.toString())) {
-        nameObject[names[i]].amount += 2;
-      } else {
-        nameObject[names[i]].amount++;
-      }
-      newArray.push(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString());
+    // iterate thtough string array
+    if (output.indexOf(names[i]) === -1) {
+      // if names[i] is not within output array, push
+      output.push(names[i]);
     } else {
-      newArray.push(nameObject[names[i]].name + `(${nameObject[names[i]].amount})`.toString());
-      nameObject[names[i]].amount++;
+      let j = 1;
+      while (output.indexOf(names[i] + '(' + j + ')') !== -1) {
+        // else names[i] is within output array keep incrementing j
+        // break until there is a value that is not within output array
+        j++;
+      }
+      output.push(names[i] + '(' + j + ')');
     }
   }
-  return newArray;
+  return output;
 }
 solution(['a(1)',
   'a(6)',
