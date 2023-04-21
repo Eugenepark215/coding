@@ -1,21 +1,26 @@
 function findTheLongestBalancedSubstring(s) {
-  var zeroL = 0;
-  var oneL = 0;
-  var zeroCount = s.match(/0/g);
-  var oneCount = s.match(/1/g);
-  if (!zeroCount || !oneCount) {
+  if (!s.match(/0/g) || !s.match(/1/g)) {
     return 0;
-  } else {
-    zeroL = zeroCount.length;
-    oneL = oneCount.length;
   }
-  var occurrence = zeroL > oneL ? zeroL : oneL;
-  var subString = '';
-  var amount = [];
-  for (var i = 0; i < occurrence; i++) {
-    subString = '0' + subString + '1';
-    amount.push(parseInt(subString, 2));
+  var result = 0;
+  var zeroCount = 0;
+  var oneCount = 0;
+  for (var _i = 0, s1 = s; _i < s1.length; _i++) {
+    var char = s1[_i];
+    if (char === '0') {
+      if (oneCount) {
+        // sets value to result and resets
+        result = Math.max(result, Math.min(zeroCount, oneCount) * 2);
+        zeroCount = 0;
+        oneCount = 0;
+      }
+      zeroCount++;
+    } else {
+      oneCount++;
+    }
   }
-  return Math.max.apply(Math, amount);
+  // result is assigned value of max
+  result = Math.max(result, Math.min(zeroCount, oneCount) * 2);
+  return result;
 }
 findTheLongestBalancedSubstring('01000111');

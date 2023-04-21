@@ -1,21 +1,26 @@
 function findTheLongestBalancedSubstring(s: string): number {
-  let zeroL = 0;
-  let oneL = 0;
-  const zeroCount = s.match(/0/g);
-  const oneCount = s.match(/1/g);
-  if (!zeroCount || !oneCount) {
+  if (!s.match(/0/g) || !s.match(/1/g)) {
     return 0;
-  } else {
-    zeroL = zeroCount.length;
-    oneL = oneCount.length;
   }
-  const occurrence = zeroL > oneL ? zeroL : oneL;
-  let subString = '';
-  const amount: number[] = [];
-  for (let i = 0; i < occurrence; i++) {
-    subString = '0' + subString + '1';
-    amount.push(parseInt(subString, 2));
+  let result = 0;
+  let zeroCount = 0;
+  let oneCount = 0;
+
+  for (const char of s) {
+    if (char === '0') {
+      if (oneCount) {
+        // sets value to result and resets
+        result = Math.max(result, Math.min(zeroCount, oneCount) * 2);
+        zeroCount = 0;
+        oneCount = 0;
+      }
+      zeroCount++;
+    } else {
+      oneCount++;
+    }
   }
-  return Math.max(...amount);
+  // result is assigned value of max
+  result = Math.max(result, Math.min(zeroCount, oneCount) * 2);
+  return result;
 }
 findTheLongestBalancedSubstring('01000111');
