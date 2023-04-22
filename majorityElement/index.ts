@@ -7,12 +7,7 @@ function majorityElement(nums: number[]): number {
       map.set(nums[i], 1);
     }
   }
-  let number = 0;
-  for (const value of map.values()) {
-    if (value > number) {
-      number = value;
-    }
-  }
+  const number = Math.max(...map.values());
   function getByValue(map, searchValue) {
     for (const [key, value] of map.entries()) {
       if (value === searchValue) { return key; }
