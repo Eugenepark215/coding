@@ -6,7 +6,7 @@ function climbStairs(n: number): number {
   let secondStep = 1;
   let thirdStep = 0;
 
-  for (let i = 2; i < n + 1; i++) {
+  for (let i = 1; i < n; i++) {
     thirdStep = firstStep + secondStep;
     firstStep = secondStep;
     secondStep = thirdStep;

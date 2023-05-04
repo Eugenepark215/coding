@@ -5,7 +5,7 @@ function climbStairs(n) {
   var firstStep = 1;
   var secondStep = 1;
   var thirdStep = 0;
-  for (var i = 2; i < n + 1; i++) {
+  for (var i = 1; i < n; i++) {
     thirdStep = firstStep + secondStep;
     firstStep = secondStep;
     secondStep = thirdStep;
