@@ -28,3 +28,4 @@ function luckyNumbers(matrix) {
   }
   return [];
 }
+luckyNumbers([[1, 2], [7, 8]]);
