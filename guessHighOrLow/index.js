@@ -14,13 +14,18 @@ function guess(num) {
     else if (pick > num) { return 1; } else { return -1; }
 }
 function guessNumber(n) {
-  var pick = n;
-  while (guess(pick) !== 0) {
-    if (guess(n) === -1) {
-      pick--;
-    } else if (guess(n) === 1) {
-      pick++;
+  var min = 0;
+  var max = n;
+  while (min <= max) {
+    var mid = Math.floor(min + (max - min) / 2);
+    var result = guess(mid);
+    if (result === 0) {
+      return mid;
+    } else if (result < 0) {
+      max = mid - 1;
+    } else {
+      min = mid + 1;
     }
   }
-  return pick;
+  return -1;
 }

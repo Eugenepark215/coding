@@ -16,13 +16,18 @@ function guess(num:number) :number {
 }
 
 function guessNumber(n: number): number {
-  let pick = n;
-  while (guess(pick) !== 0) {
-    if (guess(n) === -1) {
-      pick--;
-    } else if (guess(n) === 1) {
-      pick++;
+  let min = 0;
+  let max = n;
+  while (min <= max) {
+    const mid = Math.floor(min + (max - min) / 2);
+    const result = guess(mid);
+    if (result === 0) {
+      return mid;
+    } else if (result < 0) {
+      max = mid - 1;
+    } else {
+      min = mid + 1;
     }
   }
-  return pick;
+  return -1;
 }
