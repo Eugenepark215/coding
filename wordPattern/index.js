@@ -13,10 +13,7 @@ var wordPattern = function (pattern, s) {
     const check = Array.from(mappedSPattern.values()).includes(splitS[i]);
     if (!mappedSPattern.get(pattern[i]) && !check) {
       mappedSPattern.set(pattern[i], splitS[i]);
-    } else if (mappedSPattern.get(pattern[i]) === splitS[i]) {
-      // eslint-disable-next-line no-console
-      console.log(1);
-    } else {
+    } else if (mappedSPattern.get(pattern[i]) !== splitS[i]) {
       return false;
     }
   }
