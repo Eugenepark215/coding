@@ -8,9 +8,6 @@
  */
 var rotateString = function (s, goal) {
   const splitS = s.split('');
-  if (s === goal) {
-    return true;
-  }
   for (let i = 0; i < s.length; i++) {
     const current = splitS.shift();
     splitS.push(current);
