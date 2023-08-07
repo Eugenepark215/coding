@@ -1,4 +1,4 @@
-var findLHS = function (nums) {
+function findingLHS(nums:number[]) :number {
   const map = {};
   let maxResultLength = 0;
   // assign values to map
@@ -9,14 +9,13 @@ var findLHS = function (nums) {
 
   // loop through map
   for (const [key, value] of Object.entries(map)) {
-  // if a key with a difference of 1 exists in map
-    if (map[key - 1]) {
+    // if a key with a difference of 1 exists in map
+    if (map[parseInt(key) - 1]) {
       // the maxResultLength is assigned the greater value of maxResultLength or the value of [key-1] + the value of current key
-      maxResultLength = Math.max(maxResultLength, map[key - 1] + value);
+      maxResultLength = Math.max(maxResultLength, map[parseInt(key) - 1] + value);
     }
   }
 
   return maxResultLength;
-};
-
-findLHS([1, 3, 2, 2, 5, 2, 3, 7]);
+}
+findingLHS([1, 3, 2, 2, 5, 2, 3, 7]);
