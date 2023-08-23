@@ -1,10 +1,13 @@
 function checkString(s) {
-  if (!s.includes('a') || !s.includes('b')) { return true; }
-  var splitString = s.split('');
-  while (splitString[0] === 'a') {
-    splitString.shift();
+  var beforeA = false;
+  for (var i = 0; i < s.length; i++) {
+    if (beforeA && s[i] === 'a') {
+      return false;
+    }
+    if (s[i] === 'b') {
+      beforeA = true;
+    }
   }
-  if (splitString.includes('a')) { return false; }
   return true;
 }
 checkString('aaabbb');

@@ -1,10 +1,12 @@
 function checkString(s: string): boolean {
-  if (!s.includes('a') || !s.includes('b')) return true;
-  const splitString = s.split('');
-  while (splitString[0] === 'a') {
-    splitString.shift();
+  let beforeA = false;
+  for (let i = 0; i < s.length; i++) {
+    if (beforeA && s[i] === 'a') {
+      return false;
+    } if (s[i] === 'b') {
+      beforeA = true;
+    }
   }
-  if (splitString.includes('a')) return false;
   return true;
 }
 
