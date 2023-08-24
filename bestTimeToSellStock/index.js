@@ -1,15 +1,10 @@
 function maxProfit(prices) {
-  var profits = [];
-  for (var i = 0; i < prices.length; i++) {
-    var profitPerDay = 0;
-    for (var j = i + 1; j < prices.length; j++) {
-      if ((prices[j] - prices[i]) > profitPerDay) {
-        profitPerDay = prices[j] - prices[i];
-      }
-    }
-    profits.push(profitPerDay);
+  var min = prices[0];
+  var max = 0;
+  for (var i = 1; i < prices.length; i++) {
+    min = Math.min(min, prices[i]);
+    max = Math.max(max, prices[i] - min);
   }
-  if (Math.max.apply(Math, profits) < 0) { return 0; }
-  return Math.max.apply(Math, profits);
+  return max;
 }
 maxProfit([7, 2, 3, 4, 6, 1]);
