@@ -1,13 +1,6 @@
 function containsDuplicate(nums: number[]): boolean {
-  let tF = false;
-  while (nums.length !== 0) {
-    const current = nums[0];
-    nums.shift();
-    if (nums.includes(current)) {
-      tF = true;
-    }
-  }
-  return tF;
+  const set = new Set<number>(nums);
+  return (set.size < nums.length);
 }
 
 containsDuplicate([1, 2, 3, 1]);
