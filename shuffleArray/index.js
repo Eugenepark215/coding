@@ -1,14 +1,8 @@
 function shuffle(nums, n) {
-  var half = [];
-  var otherHalf = [];
   var mix = [];
   for (var i = 0; i < n; i++) {
-    half.push(nums[i]);
-    otherHalf.push(nums[i + n]);
-  }
-  for (var j = 0; j < half.length; j++) {
-    mix.push(half[j]);
-    mix.push(otherHalf[j]);
+    mix.push(nums[i]);
+    mix.push(nums[i + n]);
   }
   return mix;
 }

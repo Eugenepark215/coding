@@ -1,14 +1,8 @@
 function shuffle(nums: number[], n: number): number[] {
-  const half:number[] = [];
-  const otherHalf:number[] = [];
-  const mix:number[] = [];
+  const mix: number[] = [];
   for (let i = 0; i < n; i++) {
-    half.push(nums[i]);
-    otherHalf.push(nums[i + n]);
-  }
-  for (let j = 0; j < half.length; j++) {
-    mix.push(half[j]);
-    mix.push(otherHalf[j]);
+    mix.push(nums[i]);
+    mix.push(nums[i + n]);
   }
   return mix;
 }
