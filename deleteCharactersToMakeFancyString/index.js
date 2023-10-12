@@ -1,20 +1,20 @@
 function makeFancyString(s) {
   var counter = 0;
   var currentString = s[0];
-  var newString = [];
+  var newString = '';
   for (var i = 0; i < s.length; i++) {
     if (currentString === s[i]) {
       if (counter < 2) {
         counter++;
-        newString.push(s[i]);
+        newString += s[i];
       }
     } else {
-      newString.push(s[i]);
+      newString += s[i];
       counter = 1;
       currentString = s[i];
     }
   }
-  return newString.join('');
+  return newString;
 }
 makeFancyString('aaabbaaa');
 // given string s return a new string that doesnt contain 3 same consecutive letters
