@@ -1,3 +1,22 @@
+function makeFancyString(s) {
+  var counter = 0;
+  var currentString = s[0];
+  var newString = [];
+  for (var i = 0; i < s.length; i++) {
+    if (currentString === s[i]) {
+      if (counter < 2) {
+        counter++;
+        newString.push(s[i]);
+      }
+    } else {
+      newString.push(s[i]);
+      counter = 1;
+      currentString = s[i];
+    }
+  }
+  return newString.join('');
+}
+makeFancyString('aaabbaaa');
 // given string s return a new string that doesnt contain 3 same consecutive letters
 // use for loop to iterate through string s
 // create variable that will count the number of occurences
