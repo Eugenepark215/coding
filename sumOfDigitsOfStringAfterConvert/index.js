@@ -1,21 +1,21 @@
 function getLucky(s, k) {
-  var splitArray = s.split('');
-  var newArray = [];
-  var counter = 0;
-  for (var i = 0; i < splitArray.length; i++) {
-    var current = parseInt(splitArray[i], 36) - 9;
-    newArray.push(current.toString());
+  // starting letter
+  var base = 'a'.charCodeAt(0);
+  var sum = 0;
+  // first conversion will run since 1 <= 1
+  for (var i = 0; i < s.length; i++) {
+    // converts string into number in accordance to alphabet
+    var val = s.charCodeAt(i) - base + 1;
+    // will add the total of the converted value into sum
+    sum += Math.floor(val / 10) + val % 10;
   }
-  while (k > 0) {
-    counter = 0;
-    for (var j = 0; j < newArray.length; j++) {
-      var currentNewArray = parseInt(newArray[j]);
-      counter += currentNewArray;
+  // conversion will repeat k times
+  for (var j = 1; j < k; j++) {
+    var numStr = sum.toString();
+    sum = 0;
+    for (var l = 0; l < numStr.length; l++) {
+      sum += Number(numStr[l]);
     }
-    var newCounter = counter.toString();
-    newArray = newCounter.split('');
-    counter = newArray.reduce(function (a, b) { return a + parseInt(b); }, 0);
-    --k;
   }
-  return counter;
+  return sum;
 }
