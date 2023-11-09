@@ -1,6 +1,12 @@
-// can start at index 0 or 1
-// can increase index by 1 or 2
-// finishing is exceeding length of array
-// have to compare which cost is cheaper
-// have to iterate through array
-// have to compare if either index + 1 or index + 2 is cheaper
+function minCostClimbingStairs(cost: number[]): number {
+  let first = cost[0];
+  let second = cost[1];
+  // index starts at 2 becuase cost[0] and cost[1] are already defined
+  for (let i = 2; i < cost.length; i++) {
+    // curent cost is reflected on current index by adding the min of first & second
+    const current = cost[i] + Math.min(first, second);
+    first = second;
+    second = current;
+  }
+  return Math.min(first, second);
+}
