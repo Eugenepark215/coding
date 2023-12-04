@@ -1,9 +1,9 @@
 function arrayRankTransform(arr: number[]): number[] {
-  const shallow = arr.slice();
-  const newSet = [...new Set(shallow)];
+  const map = new Map();
+  const newSet = [...new Set(arr)];
   const sortedSet = newSet.sort((a, b) => a - b);
-  for (let i = 0; i < arr.length; i++) {
-    arr.splice(i, 1, (sortedSet.indexOf(arr[i]) + 1));
-  }
-  return arr;
+  // map through sortedSet elements and set map
+  sortedSet.map((x, i) => map.set(x, i + 1));
+  // map through arr and replace elements with the value of the elements that was set in map
+  return arr.map(x => map.get(x));
 }
