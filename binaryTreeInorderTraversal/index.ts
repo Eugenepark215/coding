@@ -11,3 +11,22 @@
  *     }
  * }
  */
+
+function inorderTraversal(root: TreeNode | null): number[] {
+
+  const stack = [];
+  const values = [];
+  let current = root;
+
+  while (current || stack.length !== 0) {
+    while (current) {
+      stack.push(current);
+      current = current.left;
+    }
+    current = stack.pop();
+    values.push(current.val);
+    current = current.right;
+  }
+  return values;
+
+}
