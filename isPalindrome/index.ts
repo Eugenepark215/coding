@@ -6,9 +6,7 @@ function isPalindrome(s: string): boolean {
     }
   }
 
-  const splitStringArray = stringsOnly.split('');
-  const reverse = splitStringArray.reverse();
-  const join = reverse.join('');
+  const splitStringArray = [...stringsOnly].reverse().join('');
 
-  return join === stringsOnly;
+  return splitStringArray === stringsOnly;
 }
